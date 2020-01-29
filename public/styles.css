@@ -87,7 +87,7 @@ form textarea {
   font-family: inherit;
   resize: none;
 }
-.button_styling {
+form.create-note button {
   position: absolute;
   right: 18px;
   bottom: -18px;

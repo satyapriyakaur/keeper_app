@@ -5,31 +5,34 @@ import Zoom from "@material-ui/core/Zoom";
 
 function CreateArea(props) {
   const[expand,updateExpand]=useState(false);
-  const [newTitle, updateNewTitle] = useState("");
-  const [newContent, updateNewContent] = useState("");
   function expandArea(){
     updateExpand(true);
   }
 
+  const [newTitle, updateNewTitle] = useState("");
+  const [newContent, updateNewContent] = useState("");
+  
+
   function addTitle(event) {
     
     updateNewTitle(event.target.value);
-    //console.log(event.target);
+    
   }
   function addContent(event) {
     updateNewContent(event.target.value);
-    //console.log(newContent);
   }
  
   return (
     <div>
-      <form>
-        {expand &&(<input
+      <form class="create-note">
+        {expand &&(
+          <input
           name="title"
           placeholder="Title"
           onChange={addTitle}
           value={newTitle}
-        />) }
+        />
+        ) }
         <textarea
           name="content"
           placeholder="Take a note..."
@@ -38,13 +41,13 @@ function CreateArea(props) {
           value={newContent}
           onClick= {expandArea}
         />
-        <Zoom in={true}>
+        <Zoom in={expand}>
         
-        <Fab   class="button_styling" onClick={ ( )=>{ const newValue = {title: newTitle ,
+        <Fab    onClick={ ( )=>{ const newValue = {title: newTitle ,
       content:  newContent };
     props.clickFunction(newValue); 
     updateNewTitle("");
-    updateNewContent("");}          } type="button" > 
+    updateNewContent("");}          }  > 
     <AddIcon />
     </Fab>
     </Zoom>
