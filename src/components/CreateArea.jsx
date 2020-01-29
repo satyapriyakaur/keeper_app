@@ -1,8 +1,15 @@
 import React, { useState } from "react";
+import AddIcon from "@material-ui/icons/Add";
+import Fab from "@material-ui/core/Fab";
+import Zoom from "@material-ui/core/Zoom";
 
 function CreateArea(props) {
+  const[expand,updateExpand]=useState(false);
   const [newTitle, updateNewTitle] = useState("");
   const [newContent, updateNewContent] = useState("");
+  function expandArea(){
+    updateExpand(true);
+  }
 
   function addTitle(event) {
     
@@ -17,24 +24,30 @@ function CreateArea(props) {
   return (
     <div>
       <form>
-        <input
+        {expand &&(<input
           name="title"
           placeholder="Title"
           onChange={addTitle}
           value={newTitle}
-        />
+        />) }
         <textarea
           name="content"
           placeholder="Take a note..."
-          rows="3"
+          rows={ expand ? 3 :1}
           onChange={addContent}
           value={newContent}
+          onClick= {expandArea}
         />
-        <button onClick={ ( )=>{ const newValue = {title: newTitle ,
+        <Zoom in={true}>
+        
+        <Fab   class="button_styling" onClick={ ( )=>{ const newValue = {title: newTitle ,
       content:  newContent };
     props.clickFunction(newValue); 
     updateNewTitle("");
-    updateNewContent("");}          } type="button" >Add</button>
+    updateNewContent("");}          } type="button" > 
+    <AddIcon />
+    </Fab>
+    </Zoom>
       </form>
     </div>
   );

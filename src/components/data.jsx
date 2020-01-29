@@ -1,15 +1,15 @@
 const data = [
     {
       title: "first Note",
-      content: "100 days of reading challange"
+      content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod exercitation ullamco "
     },
     {
       title: "second Note",
-      content: " Crio Project"
+      content: " eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non"
     },
     {
       title: "third Note",
-      content: "100 days of reading challange"
+      content: "proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
     }
   ];
   
